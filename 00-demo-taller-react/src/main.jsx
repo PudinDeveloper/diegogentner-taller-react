@@ -1,14 +1,6 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-
-const HelloWorld = (props) => {
-  return (
-    <div> 
-      <h1>{props.title}</h1>
-    </div>
-  )
-}
+import React, {useState} from 'react';
+import ReactDOM from 'react-dom/client';
+import Header from "./components/Header";
 
 const App = () => {
 
@@ -23,7 +15,7 @@ const App = () => {
   return (
     
   <div>
-      <HelloWorld title="Adele es la mejor" />
+      <Header title="Adele es la mejor" />
       <List items = {myList}/>
       <p>It is Now {now.toString()}</p>
       <p style={{color: a >= 10 ? "red" : "blue"}}>a + b is {a + b}</p>
@@ -31,16 +23,22 @@ const App = () => {
   )
 }
 
-const List = ({items}) => ( //si utilizo parentesis es directamente
+const HelloWorld = (props) => {
+  return (
+    <div> 
+      <h1>{props.title}</h1>
+    </div>
+  )
+}
 
-    <ul>
-      {items.map(item => {
-        return (
-          <li>{item}</li>
-        )
-      })}
-    </ul>
-  
+const List = ({items}) => ( //si utilizo parentesis es directamente
+  <ul>
+    {items.map(item => {
+      return (
+        <li>{item}</li>
+      )
+    })}
+  </ul>
 )
 
 ReactDOM.createRoot(document.getElementById('root')).render(
