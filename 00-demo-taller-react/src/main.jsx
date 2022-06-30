@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from "./components/Header";
+import Content from "./components/Content";
 
 const App = () => {
 
@@ -10,24 +11,24 @@ const App = () => {
   const myList = [
     'Primero',
     'Segundo'
-  ]
+  ];
+
+  const courseInfo = [
+    { key: "fundamentals", part: "Fundamentals of React", exercises: 10 },
+    { key: "props", part: "Resizing", exercises: 17 },
+    { key: "state", part: "State of component", exercises: 14 },
+    { key: "fetch", part: "Fetching resources from an API", exercises: 9 }
+  ];
 
   return (
     
   <div>
       <Header title="Adele es la mejor" />
+      <Content courseInfo = { courseInfo } />
       <List items = {myList}/>
       <p>It is Now {now.toString()}</p>
       <p style={{color: a >= 10 ? "red" : "blue"}}>a + b is {a + b}</p>
   </div>
-  )
-}
-
-const HelloWorld = (props) => {
-  return (
-    <div> 
-      <h1>{props.title}</h1>
-    </div>
   )
 }
 
