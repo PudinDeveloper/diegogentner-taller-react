@@ -14,8 +14,8 @@ function App() {
   const incrementNeutral = () => {setNeutral(neutral + 1)}
   const incrementNegative = () => {setBad(bad + 1)}
   const all = good + neutral + bad;
-  const average = ((good-bad)/(all));
-  const positive = ((good*100)/(all));
+  const average = ((good-bad)/(all)) | 0;
+  const positive = ((good*100)/(all)) | 0;
 
 
   return (
