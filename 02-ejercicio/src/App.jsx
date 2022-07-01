@@ -1,43 +1,30 @@
 import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import './index.css'
+import Statistics from './components/Statistics';
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+
+  const [good, setGood] = useState(0);
+  const [neutral, setNeutral] = useState(0);
+  const [bad, setBad] = useState(0);
+
+  //Functions
+  const inrementGood = () => {setGood(good + 1)}
+  const incrementNeutral = () => {setNeutral(neutral + 1)}
+  const incrementNegative = () => {setBad(bad + 1)}
+  const all = good + neutral + bad;
+  const average = ((good-bad)/(all));
+  const positive = ((good*100)/(all));
+
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+      <h1>Give feedback!</h1>
+      <button onClick = { inrementGood }>good</button>
+      <button onClick = { incrementNeutral }>neutral</button>
+      <button onClick = { incrementNegative }>bad</button>
+      <Statistics good={good} bad={bad} neutral={neutral} all={all} average={average} positive={positive}/>
     </div>
   )
 }
